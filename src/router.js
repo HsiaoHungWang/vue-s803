@@ -10,11 +10,14 @@ import NotFound from "./views/NotFound.vue"
 
 //路由設定
 const routes = [
-    //http://localhost:5173/
-    { path: "/", component: HomeView, name: "home" },
-    //http://localhost:5173/about
+    //http://localhost:5173/ => ttp://localhost:5173/home
+    { path: "/", redirect: "/home" },
+    //http://localhost:5173/home
+    { path: "/home", component: HomeView, name: "home" },
+    //http://localhost:5173/aboutus =>  //http://localhost:5173/aboutus/team1
     {
         path: "/aboutus", component: AboutView, name: "about",
+        redirect: "/aboutus/team1",
         children: [
             //http://localhost:5173/aboutus/team1
             { path: "team1", component: Team1View, name: "team1" },
@@ -22,8 +25,12 @@ const routes = [
             { path: "team2", component: Team2View, name: "team2" }
         ]
     },
-    //http://localhost:5173/contact => ContactView
-    { path: "/contact", component: ContactView, name: "contact" },
+    //http://localhost:5173/contact/ => ContactView
+    //http://localhost:5173/contactus => ContactView
+    {
+        path: "/contact/", component: ContactView, name: "contact",
+        alias: "/contactus"
+    },
     //http://localhost:5173/member/12 => MemberCenter
     { path: "/member/:id", component: MemberCenter, name: "member", props: true },
     { path: '/:pathMatch(.*)*', component: NotFound }
