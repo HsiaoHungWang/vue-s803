@@ -14,6 +14,9 @@ import WatchComponent from './components/WatchComponent.vue';
 import AboutView from './views/AboutView.vue';
 import ContactView from './views/ContactView.vue';
 import HomeView from './views/HomeView.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
+import JumbotronComponent from './components/JumbotronComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 
 
@@ -21,16 +24,18 @@ import HomeView from './views/HomeView.vue';
 </script>
 
 <template>
-  <div class="container">
-  <h2>Hello, Vue!!</h2>
+  <HeaderComponent></HeaderComponent>
+  <JumbotronComponent></JumbotronComponent>
+  <div class="container mt-3">
+  <!-- <h2>Hello, Vue!!</h2> -->
   <!-- <RouterLink to="/">首頁</RouterLink> | 
   <RouterLink to="/about">關於我們</RouterLink> | 
-  <RouterLink to="/xyz">聯絡我們</RouterLink> |  -->
+  <RouterLink to="/xyz">聯絡我們</RouterLink> |  
   <RouterLink :to="{name:'home'}">首頁</RouterLink> | 
   <RouterLink :to="{name:'about'}">關於我們</RouterLink> | 
   <RouterLink :to="{name:'contact'}">聯絡我們</RouterLink> | 
   <RouterLink :to="{name:'member', params:{id:1}}">會員中心</RouterLink> | 
-  <hr />
+  <hr />-->
   <RouterView></RouterView>
 
   <!-- <HomeView></HomeView>
@@ -52,6 +57,7 @@ import HomeView from './views/HomeView.vue';
 <abc-component></abc-component>
    <BindingComponent></BindingComponent> -->
    </div>
+   <FooterComponent></FooterComponent>
 </template>
 
 <style scoped></style>
