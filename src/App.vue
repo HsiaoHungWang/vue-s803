@@ -1,4 +1,8 @@
 <script setup>
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
 import AbcComponent from './components/AbcComponent.vue';
 import BindingComponent from './components/BindingComponent.vue';
 import BmiComponent from './components/BmiComponent.vue';
@@ -17,6 +21,7 @@ import HomeView from './views/HomeView.vue';
 </script>
 
 <template>
+  <div class="container">
   <h2>Hello, Vue!!</h2>
   <!-- <RouterLink to="/">首頁</RouterLink> | 
   <RouterLink to="/about">關於我們</RouterLink> | 
@@ -46,6 +51,7 @@ import HomeView from './views/HomeView.vue';
   <CountComponent></CountComponent>
 <abc-component></abc-component>
    <BindingComponent></BindingComponent> -->
+   </div>
 </template>
 
 <style scoped></style>
