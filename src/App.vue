@@ -2,6 +2,7 @@
 import AbcComponent from './components/AbcComponent.vue';
 import BindingComponent from './components/BindingComponent.vue';
 import CountComponent from './components/CountComponent.vue';
+import EevntBinding from './components/EevntBinding.vue';
 import FirstComponent from './components/FirstComponent.vue';
 
 
@@ -11,6 +12,8 @@ import FirstComponent from './components/FirstComponent.vue';
 
 <template>
   <h2>Hello, Vue!!</h2>
+  <EevntBinding></EevntBinding>
+  <hr />
   <FirstComponent></FirstComponent>
   <AbcComponent></AbcComponent>
   <CountComponent></CountComponent>
