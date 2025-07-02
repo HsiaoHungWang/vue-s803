@@ -18,10 +18,15 @@ import HomeView from './views/HomeView.vue';
 
 <template>
   <h2>Hello, Vue!!</h2>
+  <RouterLink to="/">首頁</RouterLink> | 
+  <RouterLink to="/about">關於我們</RouterLink> | 
+  <RouterLink to="/xyz">聯絡我們</RouterLink> | 
+  <hr />
+  <RouterView></RouterView>
 
-  <HomeView></HomeView>
+  <!-- <HomeView></HomeView>
   <AboutView></AboutView>
-  <ContactView></ContactView>
+  <ContactView></ContactView> -->
 
 
    <!--  <WatchComponent></WatchComponent>
