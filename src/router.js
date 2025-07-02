@@ -7,11 +7,11 @@ import HomeView from "./views/HomeView.vue"
 //路由設定
 const routes = [
     //http://localhost:5173/
-    { path: "/", component: HomeView },
+    { path: "/", component: HomeView, name: "home" },
     //http://localhost:5173/about
-    { path: "/about", component: AboutView },
-    //http://localhost:5173/xyz => ContactView
-    { path: "/xyz", component: ContactView }
+    { path: "/aboutus", component: AboutView, name: "about" },
+    //http://localhost:5173/contact => ContactView
+    { path: "/contact", component: ContactView, name: "contact" }
 ]
 
 //建立路由物件
