@@ -7,6 +7,9 @@ import CountComponent from './components/CountComponent.vue';
 import EevntBinding from './components/EevntBinding.vue';
 import FirstComponent from './components/FirstComponent.vue';
 import WatchComponent from './components/WatchComponent.vue';
+import AboutView from './views/AboutView.vue';
+import ContactView from './views/ContactView.vue';
+import HomeView from './views/HomeView.vue';
 
 
 
@@ -15,7 +18,13 @@ import WatchComponent from './components/WatchComponent.vue';
 
 <template>
   <h2>Hello, Vue!!</h2>
-  <WatchComponent></WatchComponent>
+
+  <HomeView></HomeView>
+  <AboutView></AboutView>
+  <ContactView></ContactView>
+
+
+   <!--  <WatchComponent></WatchComponent>
   <hr />
   <BmiComponent></BmiComponent>
   <hr />
@@ -26,8 +35,8 @@ import WatchComponent from './components/WatchComponent.vue';
   <FirstComponent></FirstComponent>
   <AbcComponent></AbcComponent>
   <CountComponent></CountComponent>
-  <!-- <abc-component></abc-component> -->
-   <BindingComponent></BindingComponent>
+<abc-component></abc-component>
+   <BindingComponent></BindingComponent> -->
 </template>
 
 <style scoped></style>
