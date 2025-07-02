@@ -6,6 +6,7 @@ import ComputedDemo from './components/ComputedDemo.vue';
 import CountComponent from './components/CountComponent.vue';
 import EevntBinding from './components/EevntBinding.vue';
 import FirstComponent from './components/FirstComponent.vue';
+import WatchComponent from './components/WatchComponent.vue';
 
 
 
@@ -14,6 +15,8 @@ import FirstComponent from './components/FirstComponent.vue';
 
 <template>
   <h2>Hello, Vue!!</h2>
+  <WatchComponent></WatchComponent>
+  <hr />
   <BmiComponent></BmiComponent>
   <hr />
   <ComputedDemo></ComputedDemo>
