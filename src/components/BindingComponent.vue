@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import myCat from '@/assets/images/cat.jpg'
+
     console.log(new Date().getDay()) //回傳今天是星期幾 2
     const title = ref('vue')
     const week = ref(["日","一", "二", "三"])
@@ -32,6 +34,12 @@ import { ref } from 'vue';
       <p>{{author.books.length===0 ? "沒有" : "有"}} 書</p>
 
       <h3>屬性繫節 v-bind:屬性</h3>
+      <img src="/images/dog.webp" alt="dog" />
+      <!-- <img src="/src/assets/images/cat.jpg" alt="cat" title="不建議寫法" />
+      <img src="@/assets/images/cat.jpg" alt="cat" title="不建議寫法" /> -->
+      <img :src="myCat" alt="cat" />
+      <hr />
+
       <a v-bind:href="iSpanUrl" :title="title">iSpan</a> | 
       <a :href="iSpanUrl">iSpan</a>
       <img :src="logoUrl" />
@@ -42,5 +50,7 @@ import { ref } from 'vue';
 </template>
 
 <style lang="css" scoped>
-
+  img {
+    width:100px;
+  }
 </style>
