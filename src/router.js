@@ -6,6 +6,7 @@ import HomeView from "./views/HomeView.vue"
 import Team1View from "./views/Team1View.vue"
 import Team2View from "./views/Team2View.vue"
 import MemberCenter from "./views/MemberCenter.vue"
+import NotFound from "./views/NotFound.vue"
 
 //路由設定
 const routes = [
@@ -24,7 +25,8 @@ const routes = [
     //http://localhost:5173/contact => ContactView
     { path: "/contact", component: ContactView, name: "contact" },
     //http://localhost:5173/member/12 => MemberCenter
-    { path: "/member/:id", component: MemberCenter, name: "member", props: true }
+    { path: "/member/:id", component: MemberCenter, name: "member", props: true },
+    { path: '/:pathMatch(.*)*', component: NotFound }
 ]
 
 //建立路由物件
