@@ -14,8 +14,8 @@ const routes = [
     {
         path: "/aboutus", component: AboutView, name: "about",
         children: [
-            //http://localhost:5173/team1
-            { path: "/team1", component: Team1View, name: "team1" },
+            //http://localhost:5173/aboutus/team1
+            { path: "team1", component: Team1View, name: "team1" },
             //http://localhost:5173/aboutus/team2
             { path: "team2", component: Team2View, name: "team2" }
         ]
