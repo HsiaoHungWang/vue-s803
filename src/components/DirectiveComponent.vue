@@ -40,6 +40,12 @@ import { ref } from 'vue';
         <option v-for="(region,idx) in regions" :key="region.code" :value="region.code">{{idx}} {{ region.name }}</option>
        
       </select><span>{{ selectedRegion }}</span>
+
+      <nav aria-label="Page navigation example">
+  <ul class="pagination">   
+    <li class="page-item" v-for="i in 5" :key="i"><a class="page-link" href="#">{{i}}</a></li>  
+  </ul>
+</nav>
     </div>
 </template>
 
