@@ -1,7 +1,7 @@
 <script setup>
 import TodosAdd from '@/components/TodosAdd.vue';
 import { computed, ref } from 'vue';
-const newTodo = ref('')
+
 
 const todos = ref(
     [
@@ -12,6 +12,13 @@ const todos = ref(
 )
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
+
+
+//由子組件觸發執行
+const addTodoHandler = todo =>{
+    //todo 就是子組件傳過了的待辦事項
+    todos.value.push({ "id": uniqueId(), "title": todo, "completed": false})
+}
 
 
 
@@ -48,7 +55,8 @@ const remaining = computed(()=>{
         <div class="col-3"> </div>
         <div class="col-6">
             <h3>Todos Page</h3>
-            <TodosAdd></TodosAdd>
+            <!--addTodoEvent 是自訂事件，要傳給子組件-->
+            <TodosAdd @addTodoEvent="addTodoHandler"></TodosAdd>
             <ul class="list-group mt-3">
                 <li v-for="todo in todos" :key="todo.id" class="list-group-item">
                     <div class="d-flex justify-content-between">

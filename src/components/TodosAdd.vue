@@ -2,10 +2,19 @@
 import { ref } from 'vue'
 
 const newTodo = ref('')
+
+//定義父組件傳過來的事件名稱
+const emit = defineEmits(['addTodoEvent'])
+
+
     //待做事項新增
 const enterHandler = ()=>{
     // todos.value.push({ "id": uniqueId(), "title": newTodo.value, "completed": false})
-    console.log(newTodo.value)
+     //console.log(newTodo.value)
+
+     //引發父組件的事件並且把待辦事項傳給他
+     emit('addTodoEvent',newTodo.value)
+
      newTodo.value = ''
 }
 
