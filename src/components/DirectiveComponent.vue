@@ -6,6 +6,8 @@ import { ref } from 'vue';
     setTimeout(()=>{
         isLoading.value = false;
     },3000)
+
+    const isLoggedIn = ref(false)
 </script>
 
 <template>
@@ -16,6 +18,12 @@ import { ref } from 'vue';
       <img src="/images/loading.gif" v-show="isLoading" />
       <!-- <img src="/images/dog.webp" v-show="false" />
       <img src="/images/dog.webp" v-if="false" /> -->
+      <div v-if="isLoggedIn">
+        <button @click="isLoggedIn=!isLoggedIn">登出</button>
+      </div>
+      <div v-else>
+        <button @click="isLoggedIn=!isLoggedIn">登入</button>
+      </div>
     </div>
 </template>
 
