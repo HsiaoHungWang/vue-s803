@@ -1,5 +1,4 @@
 <script setup>
-import TodosAdd from '@/components/TodosAdd.vue';
 import { computed, ref } from 'vue';
 const newTodo = ref('')
 
@@ -13,7 +12,16 @@ const todos = ref(
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 
+//待做事項新增
+const enterHandler = ()=>{
+    todos.value.push({ "id": uniqueId(), "title": newTodo.value, "completed": false})
+     newTodo.value = ''
+}
 
+//清除輸入的資料
+const deleteHandler = () => {
+    newTodo.value = ''
+}
 
 //刪除 todo
 const removeTodo = todo =>{
@@ -48,7 +56,7 @@ const remaining = computed(()=>{
         <div class="col-3"> </div>
         <div class="col-6">
             <h3>Todos Page</h3>
-            <TodosAdd></TodosAdd>
+            <input v-model="newTodo" @keyup.delete="deleteHandler" @keyup.enter="enterHandler" type="text" class="form-control" autofocus autocomplete="off" placeholder="想要做甚麼?">
             <ul class="list-group mt-3">
                 <li v-for="todo in todos" :key="todo.id" class="list-group-item">
                     <div class="d-flex justify-content-between">

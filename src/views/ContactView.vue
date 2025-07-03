@@ -9,7 +9,8 @@ const email = ref('Jack@gmail.com')
     
 const myHandler = data => {
  //data 參數就是子組件傳過來的資料
- console.log(data);
+ age.value = data;
+ console.log(age.value);
 }
 </script>
 

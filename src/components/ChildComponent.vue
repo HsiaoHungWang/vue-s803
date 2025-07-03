@@ -7,10 +7,11 @@
     })
     //定義父組件傳過來的事件
     const emit = defineEmits(["myEvent"])
-    
+
     const clickHandler = ()=>{
         //觸發父組件傳過來的事件
-        emit("myEvent", "Jack@company.com")
+        // emit("myEvent", "Jack@company.com")
+        emit("myEvent", props.abc + 5)
     }
 </script>
 
