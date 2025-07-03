@@ -39,7 +39,7 @@ import DirectiveComponent from './components/DirectiveComponent.vue';
   <hr />-->
   <RouterView></RouterView>
   <hr />
-  <DirectiveComponent></DirectiveComponent>
+  <!-- <DirectiveComponent></DirectiveComponent> -->
 
   <!-- <HomeView></HomeView>
   <AboutView></AboutView>

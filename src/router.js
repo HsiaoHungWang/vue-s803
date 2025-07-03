@@ -8,6 +8,7 @@ import Team2View from "./views/Team2View.vue"
 import MemberCenter from "./views/MemberCenter.vue"
 import NotFound from "./views/NotFound.vue"
 import TodosView_Full from "./views/TodosView_Full.vue"
+import TabsView from "./views/TabsView.vue"
 
 //路由設定
 const routes = [
@@ -35,6 +36,10 @@ const routes = [
     //http://localhost:5173/todos => TodosView_Full
     {
         path: "/todos", component: TodosView_Full, name: "todos",
+    },
+    //http://localhost:5173/tabs => TabsView
+    {
+        path: '/tabs', component: TabsView, name: 'tabs'
     },
     //http://localhost:5173/member/12 => MemberCenter
     { path: "/member/:id", component: MemberCenter, name: "member", props: true },
