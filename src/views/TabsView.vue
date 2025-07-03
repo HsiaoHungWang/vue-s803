@@ -23,7 +23,9 @@
             </li> 
         </ul>
       <div class="mt-3">
+        <KeepAlive>
          <component :is="tabs[activedIndex].component"></component>
+         </KeepAlive>
       </div>
 
        
