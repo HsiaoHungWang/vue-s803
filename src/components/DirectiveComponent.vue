@@ -26,6 +26,17 @@ import { ref } from 'vue';
     const isS2 = ref(false)
     const isUnder = ref(false)
     const isItalic = ref(false)
+
+    const gender = ref('female')
+    const skills = ref([])
+    const keyword = ref('')
+    const enterHandler = (event)=>{
+        console.log(event)
+        console.log(keyword.value)
+    }
+    const clearHandler = ()=>{
+        keyword.value = '';
+    }
 </script>
 
 <template>
@@ -68,6 +79,18 @@ import { ref } from 'vue';
     <button @click="fontSize -= 2">A-</button>
     <h3 :class="{s1:isS1,s2:isS2,underline:isUnder,italic:isItalic}"
         :style="{fontSize:`${fontSize}px`}">樣式套用</h3>
+
+    <label><input type="radio" v-model="gender" value="female" />女</label>
+    <label><input type="radio" v-model="gender" value="male" />男</label>
+    <div>{{ gender }}</div>
+
+    <label><input type="checkbox" value="C#" v-model="skills" />C#</label>
+    <label><input type="checkbox" value="EF" v-model="skills" />EF</label>
+    <label><input type="checkbox" value="JS" v-model="skills" />JavaScript</label>
+    <label><input type="checkbox" value="Vue3" v-model="skills" />Vue3</label>
+    <div>專長：{{ skills }}</div>
+
+     <input type="text" v-model="keyword" @keyup.enter="enterHandler" @keyup.delete="clearHandler" />
 </template>
 
 <style lang="css" scoped>
