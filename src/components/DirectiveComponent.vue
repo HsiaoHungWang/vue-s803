@@ -8,6 +8,16 @@ import { ref } from 'vue';
     },3000)
 
     const isLoggedIn = ref(false)
+
+    const regions = ref([
+        {"name":"新興區", "code":"800"},
+        {"name":"前金區", "code":"801"},       
+        {"name":"苓雅區", "code":"802"},
+        {"name":"鹽埕區", "code":"803"},
+        {"name":"鼓山區", "code":"804"},      
+        {"name":"旗津區", "code":"805"}
+    ])
+    const selectedRegion = ref("")
 </script>
 
 <template>
@@ -24,6 +34,12 @@ import { ref } from 'vue';
       <div v-else>
         <button @click="isLoggedIn=!isLoggedIn">登入</button>
       </div>
+      <select v-model="selectedRegion">
+        <!--region => {"name":"新興區", "code":"800"} -->
+        <option value="">請選擇</option>
+        <option v-for="(region,idx) in regions" :key="region.code" :value="region.code">{{idx}} {{ region.name }}</option>
+       
+      </select><span>{{ selectedRegion }}</span>
     </div>
 </template>
 
