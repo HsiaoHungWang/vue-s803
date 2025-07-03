@@ -7,6 +7,7 @@ import Team1View from "./views/Team1View.vue"
 import Team2View from "./views/Team2View.vue"
 import MemberCenter from "./views/MemberCenter.vue"
 import NotFound from "./views/NotFound.vue"
+import TodosView_Full from "./views/TodosView_Full.vue"
 
 //路由設定
 const routes = [
@@ -30,6 +31,10 @@ const routes = [
     {
         path: "/contact/", component: ContactView, name: "contact",
         alias: "/contactus"
+    },
+    //http://localhost:5173/todos => TodosView_Full
+    {
+        path: "/todos", component: TodosView_Full, name: "todos",
     },
     //http://localhost:5173/member/12 => MemberCenter
     { path: "/member/:id", component: MemberCenter, name: "member", props: true },

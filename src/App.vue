@@ -17,6 +17,7 @@ import HomeView from './views/HomeView.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import JumbotronComponent from './components/JumbotronComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import DirectiveComponent from './components/DirectiveComponent.vue';
 
 
 
@@ -37,6 +38,8 @@ import FooterComponent from './components/FooterComponent.vue';
   <RouterLink :to="{name:'member', params:{id:1}}">會員中心</RouterLink> | 
   <hr />-->
   <RouterView></RouterView>
+  <hr />
+  <DirectiveComponent></DirectiveComponent>
 
   <!-- <HomeView></HomeView>
   <AboutView></AboutView>
