@@ -1,16 +1,19 @@
 <script setup>
 import TodosAdd from '@/components/TodosAdd.vue';
 import TodosFooter from '@/components/TodosFooter.vue';
-import { computed, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
 
-const todos = ref(
-    [
-        { "id": "m21uwqfprb0ncx4", "title": "買菜", "completed": false },
-        { "id": "m21w6x73hw2tvrc", "title": "看電視", "completed": true },
-        { "id": "m21w6x73hw2abcd", "title": "睡覺", "completed": true },
-    ]
-)
+// const todos = ref(
+//     [
+//         { "id": "m21uwqfprb0ncx4", "title": "買菜", "completed": false },
+//         { "id": "m21w6x73hw2tvrc", "title": "看電視", "completed": true },
+//         { "id": "m21w6x73hw2abcd", "title": "睡覺", "completed": true },
+//     ]
+// )
+//從localStorage取得待辦事項
+const todos = ref(JSON.parse(localStorage.getItem('todos')))
+
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 
@@ -19,6 +22,7 @@ const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).subs
 const addTodoHandler = todo =>{
     //todo 就是子組件傳過了的待辦事項
     todos.value.push({ "id": uniqueId(), "title": todo, "completed": false})
+    
 }
 
 
@@ -30,6 +34,7 @@ const removeTodo = todo =>{
    
     //刪除 從idx這個位置刪除1筆資料
     todos.value.splice(idx,1)
+    
 }
 
 //移除所有完成的工作
@@ -45,6 +50,16 @@ const removeCompleted = ()=>{
 const remaining = computed(()=>{
    const activeTodos = todos.value.filter(todo=>!todo.completed)  
    return activeTodos.length
+})
+
+//待辦事項異動時要存進localStorage
+//程式要寫在哪裡
+
+//computed
+//watch(todos,(new,old)=>{})
+
+watchEffect(()=>{
+    localStorage.setItem('todos', JSON.stringify(todos.value))
 })
 
 
