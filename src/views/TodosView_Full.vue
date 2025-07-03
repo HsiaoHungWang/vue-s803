@@ -1,5 +1,6 @@
 <script setup>
 import TodosAdd from '@/components/TodosAdd.vue';
+import TodosFooter from '@/components/TodosFooter.vue';
 import { computed, ref } from 'vue';
 
 
@@ -70,10 +71,7 @@ const remaining = computed(()=>{
                 </li>
               
             </ul>
-            <div class="mt-3 d-flex justify-content-between">
-                <strong class=" me-3">尚有 {{remaining}} 個工作未完成</strong>
-                <button class="btn btn-warning me-3" @click="removeCompleted">清除完成工作</button>
-            </div>
+          <TodosFooter :total="remaining" @removeAll="removeCompleted"></TodosFooter>
         </div>
         <div class="col-3"></div>
 
