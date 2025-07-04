@@ -2,6 +2,8 @@
 import TodosAdd from '@/components/TodosAdd.vue';
 import TodosFooter from '@/components/TodosFooter.vue';
 import { computed, ref, watchEffect } from 'vue';
+import { useTodoStore } from '@/stores/todo';
+const storeTodo = useTodoStore();
 
 
 // const todos = ref(
@@ -47,10 +49,10 @@ const removeCompleted = ()=>{
 }
 
 //計算還有幾個工作未完成
-const remaining = computed(()=>{
-   const activeTodos = todos.value.filter(todo=>!todo.completed)  
-   return activeTodos.length
-})
+// const remaining = computed(()=>{
+//    const activeTodos = todos.value.filter(todo=>!todo.completed)  
+//    return activeTodos.length
+// })
 
 //待辦事項異動時要存進localStorage
 //程式要寫在哪裡
@@ -60,6 +62,9 @@ const remaining = computed(()=>{
 
 watchEffect(()=>{
     localStorage.setItem('todos', JSON.stringify(todos.value))
+    const activeTodos = todos.value.filter(todo=>!todo.completed) 
+    //更新Store中的資料
+    storeTodo.qtyChange(activeTodos.length);
 })
 
 
@@ -86,7 +91,7 @@ watchEffect(()=>{
                 </li>
               
             </ul>
-          <TodosFooter :total="remaining" @removeAll="removeCompleted"></TodosFooter>
+          <TodosFooter @removeAll="removeCompleted"></TodosFooter>
         </div>
         <div class="col-3"></div>
 
