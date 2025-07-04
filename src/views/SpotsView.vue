@@ -36,8 +36,12 @@ import { ref, watchEffect } from 'vue';
         result.value.totalPages = spot.totalPages;
         result.value.spots = spot.spotsResult;
     })
-  
-      
+    //searchInput事件發生執行searchInputHandler
+    //在子組件觸發searchInput事件
+    //在子組件把資料傳給 data 
+    const searchInputHandler = data => {
+        terms.value.keyword = data;
+    }
 
 </script>
 
@@ -48,7 +52,7 @@ import { ref, watchEffect } from 'vue';
     <div class="col-4"></div>
     <div class="col-4"></div>
     <div class="col-4">
-        <SearchKeyword></SearchKeyword>
+        <SearchKeyword @searchInput="searchInputHandler"></SearchKeyword>
     </div>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">

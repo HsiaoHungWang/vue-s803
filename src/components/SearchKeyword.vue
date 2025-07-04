@@ -2,8 +2,16 @@
 import { ref } from 'vue';
 
     const keyword = ref('');
+
+    const emit = defineEmits(['searchInput'])
+
+
     const searchHandler = ()=>{
-        console.log(keyword.value);
+        // console.log(keyword.value);
+        //觸發searchInput事件，會去執行父組件的searchInputHandler function
+        //把keywrod.value傳給這個function
+        emit('searchInput', keyword.value);
+
         keyword.value = '';
     }
     const clearHandler = ()=>{
