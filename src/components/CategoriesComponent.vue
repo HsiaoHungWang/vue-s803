@@ -7,6 +7,7 @@ import { ref } from 'vue';
     // fetch(apiUrl)
     //  .then(response=>response.json())
     //  .then(datas=>categories.value = datas);
+    
    const loadCategories = async () =>{
      const response = await fetch(apiUrl);
      const datas = await response.json();
