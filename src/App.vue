@@ -19,9 +19,10 @@ import JumbotronComponent from './components/JumbotronComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import DirectiveComponent from './components/DirectiveComponent.vue';
 import CategoriesComponent from './components/CategoriesComponent.vue';
+import { ref } from 'vue';
 
 
-
+const mode = ref(import.meta.env.VITE_ENV_TEXT );
 
 </script>
 
@@ -39,6 +40,8 @@ import CategoriesComponent from './components/CategoriesComponent.vue';
   <RouterLink :to="{name:'member', params:{id:1}}">會員中心</RouterLink> | 
   <hr />-->
   <RouterView></RouterView>
+  <hr />
+  <h2>{{ mode }}</h2>
   <hr />
   <!-- <DirectiveComponent></DirectiveComponent> -->
 
