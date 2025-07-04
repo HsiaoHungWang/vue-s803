@@ -20,6 +20,7 @@ import FooterComponent from './components/FooterComponent.vue';
 import DirectiveComponent from './components/DirectiveComponent.vue';
 import CategoriesComponent from './components/CategoriesComponent.vue';
 import { ref } from 'vue';
+import FancyButton from './components/FancyButton.vue';
 
 
 const mode = ref(import.meta.env.VITE_ENV_TEXT );
@@ -41,6 +42,14 @@ const mode = ref(import.meta.env.VITE_ENV_TEXT );
   <hr />-->
   <RouterView></RouterView>
   <hr />
+  <FancyButton>
+    <i class="bi bi-airplane"></i>
+    飛機
+  </FancyButton>
+  <FancyButton>
+    <i class="bi bi-apple"></i>
+    蘋果
+  </FancyButton>
   <!-- <h2>{{ mode }}</h2>
   <hr /> -->
   <!-- <DirectiveComponent></DirectiveComponent> -->
