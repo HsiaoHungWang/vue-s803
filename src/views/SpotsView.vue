@@ -1,4 +1,5 @@
 <script setup>
+import SearchKeyword from '@/components/SearchKeyword.vue';
 import { ref, watchEffect } from 'vue';
 
     const baseApi = import.meta.env.VITE_API_BASEURL;
@@ -43,6 +44,13 @@ import { ref, watchEffect } from 'vue';
 <template>
     <div>
 <h2>台北市景點</h2>
+<div class="row mb-3">
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <SearchKeyword></SearchKeyword>
+    </div>
+</div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" v-for="{spotId, spotTitle, address, spotDescription, spotImage} in result.spots">
     <div class="card h-100">
