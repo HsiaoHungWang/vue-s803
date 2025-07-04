@@ -1,4 +1,5 @@
 <script setup>
+import PagingComponent from '@/components/PagingComponent.vue';
 import SearchKeyword from '@/components/SearchKeyword.vue';
 import { ref, watchEffect } from 'vue';
 
@@ -49,9 +50,11 @@ import { ref, watchEffect } from 'vue';
     <div>
 <h2>台北市景點</h2>
 <div class="row mb-3">
-    <div class="col-4"></div>
-    <div class="col-4"></div>
-    <div class="col-4">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <PagingComponent></PagingComponent>
+    </div>
+    <div class="col-3">
         <SearchKeyword @searchInput="searchInputHandler"></SearchKeyword>
     </div>
 </div>
