@@ -9,6 +9,7 @@ import MemberCenter from "./views/MemberCenter.vue"
 import NotFound from "./views/NotFound.vue"
 import TodosView_Full from "./views/TodosView_Full.vue"
 import TabsView from "./views/TabsView.vue"
+import SpotsView from "./views/SpotsView.vue"
 
 //路由設定
 const routes = [
@@ -43,6 +44,8 @@ const routes = [
     },
     //http://localhost:5173/member/12 => MemberCenter
     { path: "/member/:id", component: MemberCenter, name: "member", props: true },
+    //ttp://localhost:5173/spots => SpotsView
+    { path: "/spots", component: SpotsView, name: "spots" },
     { path: '/:pathMatch(.*)*', component: NotFound }
 ]
 

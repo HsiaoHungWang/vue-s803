@@ -41,8 +41,8 @@ const mode = ref(import.meta.env.VITE_ENV_TEXT );
   <hr />-->
   <RouterView></RouterView>
   <hr />
-  <h2>{{ mode }}</h2>
-  <hr />
+  <!-- <h2>{{ mode }}</h2>
+  <hr /> -->
   <!-- <DirectiveComponent></DirectiveComponent> -->
 
   <!-- <HomeView></HomeView>
@@ -63,7 +63,7 @@ const mode = ref(import.meta.env.VITE_ENV_TEXT );
   <CountComponent></CountComponent>
 <abc-component></abc-component>
    <BindingComponent></BindingComponent> -->
-   <CategoriesComponent></CategoriesComponent>
+   <!-- <CategoriesComponent></CategoriesComponent> -->
    </div>
    <FooterComponent></FooterComponent>
 </template>
