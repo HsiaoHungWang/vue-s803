@@ -1,6 +1,9 @@
 <script setup>
 import ChildComponent from '@/components/ChildComponent.vue';
 import { ref } from 'vue';
+import { useCounterStore } from '@/stores/counter';
+
+const storeCounter = useCounterStore();
 
 
 const name = ref('Jack')
@@ -23,6 +26,12 @@ const myHandler = data => {
 <!-- myEvent 是自訂事件，把這個事件傳給子組件，讓子組件透過emit()觸發它-->
 <!--myEvent事件觸發後就會執行 myHander 這個函式-->
 <ChildComponent :xyz="name" :abc="age" :email @myEvent="myHandler" ></ChildComponent>
+    </div>
+
+    <div>
+       <p> {{ storeCounter.count }}</p>
+       <p>{{ storeCounter.doubleCount }}</p>
+       <button @click="storeCounter.add">+</button>
     </div>
 </template>
 
