@@ -5,7 +5,7 @@ import { onMounted, ref, watch, watchEffect } from 'vue';
     const categories = ref([]);
 
     const baseApi = import.meta.env.VITE_API_BASEURL;
-    const apiUrl = `${baseApi}/Categories`;
+    const apiUrl = `${baseApi}/SpotsCategories`;
     // console.log(apiUrl)
 
     // fetch(apiUrl)
@@ -19,28 +19,56 @@ import { onMounted, ref, watch, watchEffect } from 'vue';
     // })
 
     //component 產生DOM Tree
-    onMounted(async()=>{       
-       const response = await fetch(apiUrl);
-       const datas = await response.json();
-       categories.value = datas
-    })
+    // onMounted(async()=>{       
+    //    const response = await fetch(apiUrl);
+    //    const datas = await response.json();
+    //    categories.value = datas
+    // })
  
 
-//    const loadCategories = async () =>{
-//      const response = await fetch(apiUrl);
-//      const datas = await response.json();
-//      categories.value = datas
-//    }
+   const loadCategories = async () =>{
+     const response = await fetch(apiUrl);
+     const datas = await response.json();
+     categories.value = datas
+   }
 
-//    loadCategories();
-    
+   loadCategories();
 
+   //串接API，資料新增
+const addCategory = async()=>{
+    const datas = {  
+        "categoryId":13,
+        "categoryName": "bbbbbbbb"
+    };
+
+  const response = await fetch(apiUrl,{
+    method:'POST',
+    body:JSON.stringify(datas),
+    headers:{'Content-Type': 'application/json'}
+  })
+  if(response.ok){
+     loadCategories();
+  }
+}
+  //串接API，資料刪除
+const deleteCategory = async()=>{
+   const response = await fetch(`${apiUrl}/0`, {
+     method:'DELETE'
+   })
+   if(response.ok){
+    loadCategories();
+   }
+}
+
+//串接API，資料修改
      
      
 </script>
 
 <template>
     <div>
+        <button @click="addCategory">新增</button>
+        <button @click="deleteCategory">刪除</button>
     <ul>
         <li v-for="category in categories" :key="category.categoryId">{{ category.categoryName }}</li>
     </ul>
