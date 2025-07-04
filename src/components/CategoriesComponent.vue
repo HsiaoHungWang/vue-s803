@@ -61,6 +61,22 @@ const deleteCategory = async()=>{
 }
 
 //串接API，資料修改
+const updateCategory = async()=>{
+    const datas = {  
+        "categoryId":13,
+        "categoryName": "xxxxxxxxxxxxx"
+    };
+
+   const response = await fetch(`${apiUrl}/13`, {
+     method:'PUT',
+     body:JSON.stringify(datas),
+     headers:{'Content-Type': 'application/json'}   
+    })
+
+    if(response.ok){
+        loadCategories();
+    }
+}
      
      
 </script>
@@ -69,6 +85,7 @@ const deleteCategory = async()=>{
     <div>
         <button @click="addCategory">新增</button>
         <button @click="deleteCategory">刪除</button>
+        <button @click="updateCategory">修改</button>
     <ul>
         <li v-for="category in categories" :key="category.categoryId">{{ category.categoryName }}</li>
     </ul>
