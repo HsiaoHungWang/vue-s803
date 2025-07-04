@@ -37,11 +37,18 @@ import { ref, watchEffect } from 'vue';
         result.value.totalPages = spot.totalPages;
         result.value.spots = spot.spotsResult;
     })
+    
     //searchInput事件發生執行searchInputHandler
     //在子組件觸發searchInput事件
     //在子組件把資料傳給 data 
+    //關鍵字搜尋
     const searchInputHandler = data => {
         terms.value.keyword = data;
+    }
+
+    //分頁
+    const pagingHandler = page => {
+        terms.value.page = page;
     }
 
 </script>
@@ -51,8 +58,8 @@ import { ref, watchEffect } from 'vue';
 <h2>台北市景點</h2>
 <div class="row mb-3">
     <div class="col-3"></div>
-    <div class="col-6">
-        <PagingComponent></PagingComponent>
+    <div class="col-6 ">
+        <PagingComponent :totalPages="result.totalPages" @pagingEvent="pagingHandler"></PagingComponent>
     </div>
     <div class="col-3">
         <SearchKeyword @searchInput="searchInputHandler"></SearchKeyword>

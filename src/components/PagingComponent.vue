@@ -1,12 +1,21 @@
 <script setup>
-    
+    const props = defineProps({
+        totalPages:Number
+    })
+
+    const emit = defineEmits(['pagingEvent'])
+
+    const clickHandler = page => {
+        emit('pagingEvent', page)
+    }
+   
 </script>
 
 <template>
     <div>
   <nav aria-label="Page navigation example">
         <ul class="pagination">   
-            <li class="page-item" v-for="i in 10" :key="i"><a class="page-link" href="#">{{i}}</a></li>  
+            <li @click="clickHandler(i)" class="page-item" v-for="i in totalPages" :key="i"><a class="page-link" href="#">{{i}}</a></li>  
         </ul>
       </nav>
     </div>
