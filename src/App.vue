@@ -18,6 +18,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import JumbotronComponent from './components/JumbotronComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import DirectiveComponent from './components/DirectiveComponent.vue';
+import CategoriesComponent from './components/CategoriesComponent.vue';
 
 
 
@@ -59,6 +60,7 @@ import DirectiveComponent from './components/DirectiveComponent.vue';
   <CountComponent></CountComponent>
 <abc-component></abc-component>
    <BindingComponent></BindingComponent> -->
+   <CategoriesComponent></CategoriesComponent>
    </div>
    <FooterComponent></FooterComponent>
 </template>
